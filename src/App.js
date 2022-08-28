@@ -1,23 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import { AppHeader } from './components/AppHeader';
+import { CategoriesList } from './components/CategoriesList';
+import { ApplicationRoutes } from './routes/ApplicationRoutes';
+
+let links = [
+  { name: "Menu 1",
+    link: "#link"
+  }, 
+  { name: "Menu 2",
+    link: "#link"
+  },
+  { name: "Menu 3",
+    link: "#link"
+  },
+  { name: "Menu 4",
+    link: "#link"
+  },
+]
+
+let categories = [
+  { name: "Category 1",
+    link: "#link"
+  }, 
+  { name: "Category 2",
+    link: "#link"
+  },
+  { name: "Category 3",
+    link: "#link"
+  },
+  { name: "Category 4",
+    link: "#link"
+  },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="pageContent">
+      <AppHeader logo="New Logo" links={ links } />
+      <CategoriesList categories = { categories } />
+      <ApplicationRoutes />
     </div>
   );
 }

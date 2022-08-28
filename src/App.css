@@ -1,38 +1,228 @@
-.App {
+/* --- General --- */
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover,
+a:focus {
+  opacity: 0.6;
+}
+
+body {
+  background-color: #9FA29D;
+}
+
+hr {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+#pageContent {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto;
+  grid-auto-rows: max-content;
+  grid-template-areas: 
+  "header"
+  "categories"
+  "articles";
+  gap: 20px;
+  padding: 10px 5%;
+}
+
+#header {
+  grid-area: header;
+}
+
+#categorySection {
+  grid-area: categories;
+}
+
+#articlesList {
+  grid-area: articles;
+}
+
+aside {
+  grid-area: sidebar;
+}
+
+/* --- Header --- */
+.header--container {
+  background-color: #636B61;
+  color: #E6E8E3;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-areas: 
+  "brand"
+  "menu"
+  "search";
+  gap: 1rem;
+}
+
+@media only screen and (min-width: 690px) {
+  .header--container {
+    grid-template-columns: max-content auto;
+    grid-template-areas: 
+    "brand menu"
+    "brand search";
+    justify-content: space-between;
+  }
+}
+
+#brand {
+  grid-area: brand;
+}
+
+.header--container .main-menu {
+  grid-area: menu;
+}
+
+.header--container .main-search {
+  grid-area: search;
+}
+
+#brand {
+  align-self: center;
+}
+
+.main-search,
+.main-menu {
+  justify-self: end;
+}
+
+.main-menu ul {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.main-menu--link {
+  display: block;
+  padding: 10px 20px;
+  background-color: #9FA29D;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #636B61;
+}
+
+#search-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px 20px;
+  margin: 0;
+  border-radius: 10px;
+  background-color: #525851;
+  border: none;
+  color: #9FA29D;
+}
+
+#search-input::placeholder {
+  color: #9FA29D;
+}
+
+/* --- Categories Section --- */
+#categorySection ul {
+  display: block;
+  list-style: none;
+  margin: 0;
+  background-color: #E6E8E3;
+  color: #636B61;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#categorySection ul li {
+  display: inline-block;
+  margin: 0 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.category--link {
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+}
+
+/* --- Sidebar --- */
+aside {
+  background-color: #E6E8E3;
+  color: #636B61;
+  border-radius: 1rem;
+  padding: 5%;
+  align-self: start;
+  text-align: center;
+  position: sticky;
+  top: 10px;
+}
+
+aside ul {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#categorySection ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.recent-article--link {
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+}
+
+/* --- Articles list --- */
+#articlesList {
+  display: grid;
+  grid-auto-rows: max-content;
+  gap: 20px;
+  background-color: #F2F3F1;
+  border-radius: 1rem;
+  padding: 5%;
+}
+
+/* --- Article Card --- */
+.article-card {
+  background-color: #E6E8E3;
+  border-radius: calc(1rem - 0.5rem);
+  padding: 5%;
+  display: grid;
+  grid-template-columns: auto;
+  gap: 20px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 690px) {
+  .article-card {
+    grid-template-columns: 150px auto;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.article-card img {
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* --- Article Detail --- */
+#movieDetail {
+  background-color: #F2F3F1;
+  border-radius: 1rem;
+  padding: 5%;
 }
